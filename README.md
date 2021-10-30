@@ -1,0 +1,2 @@
+# Mastermind
+Problem_147_Mastermind_Код сдвига_Властелин разума
