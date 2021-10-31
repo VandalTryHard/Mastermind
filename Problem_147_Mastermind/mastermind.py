@@ -15,6 +15,9 @@
 рядке. В конце игры программа выводит соответствующий текст и сообщает, сколько
 попыток ему понадобилось."""
 
+#Я ХЗ НЕ РАБОТАЕТ ЕСЛИ КТО СМОЖЕТ РЕШИТЬ СООБЩИТЕ (дней убитых на это 2)
+#I HZ DOES NOT WORK IF WHO CAN DECIDE TO REPORT (days killed for this 2) 
+
 import random
 colors = ['red', 'yellow', 'orange', 'green', 'blue', 'purple', 'black', 'white']
 result = 0
@@ -25,6 +28,11 @@ def main():
     user_answer2(color2)
     user_answer3(color3)
     user_answer4(color4)
+    result(color1)
+    result(color2) 
+    result(color3)
+    result(color4)
+    print(result)
 
 def colors_random():
     color1 = random.choice(colors)
@@ -81,5 +89,3 @@ def user_answer4(color4):
 # def result(result):
 #     print(result)
 main()
-
-result = result1 + result2 + result3 + result4
