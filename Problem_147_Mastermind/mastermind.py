@@ -15,26 +15,22 @@
 рядке. В конце игры программа выводит соответствующий текст и сообщает, сколько
 попыток ему понадобилось."""
 
-#Я ХЗ НЕ РАБОТАЕТ ЕСЛИ КТО СМОЖЕТ РЕШИТЬ СООБЩИТЕ (дней убитых на это 2)
-#I HZ DOES NOT WORK IF WHO CAN DECIDE TO REPORT (days killed for this 2) 
-
 import random
-colors = ['red', 'yellow', 'orange', 'green', 'blue', 'purple', 'black', 'white']
-result = 0
+
 def main():
     print("Hello, my name is Botwal, I am a robot and I made 4 colors. Try to guess them in the correct order (they may repeat).")
     color1, color2, color3, color4 = colors_random()
-    user_answer1(color1)
-    user_answer2(color2)
-    user_answer3(color3)
-    user_answer4(color4)
-    result(color1)
-    result(color2) 
-    result(color3)
-    result(color4)
-    print(result)
+    result = 0
+    start = True
+    while start == True:
+        result = user_answer(color1, color2, color3, color4)
+        if result == 4:
+            start = False
+    print("Win!")
+    print(f"You took {result} guesses")
 
 def colors_random():
+    colors = ['red', 'yellow', 'orange', 'green', 'blue', 'purple', 'black', 'white']
     color1 = random.choice(colors)
     color2 = random.choice(colors)
     color3 = random.choice(colors)
@@ -49,43 +45,97 @@ def colors_random():
     #     colors_random = random.choice(colors)
     #     print(colors_random)
 
-def user_answer1(color1):
-    user_answer1 = input("Color1: ") 
-    user_answer1 = user_answer1.lower()
-    if user_answer1 == color1:
-        print("1 is 4")
-        result =+ 1
-        return result
-    else:
-        print("nop")
-def user_answer2(color2):
-    user_answer2 = input("Color2: ") 
-    user_answer2 = user_answer2.lower()
-    if user_answer2 == color2:
-        print("1 is 4")
-        result =+ 1
-        return result
-    else:
-        print("nop")
-def user_answer3(color3):
-    user_answer3 = input("Color3: ") 
-    user_answer3 = user_answer3.lower()
-    if user_answer3 == color3:
-        print("1 is 4")
-        result =+ 1
-        return result
-    else:
-        print("nop")
-def user_answer4(color4):
-    user_answer4 = input("Color4: ") 
-    user_answer4 = user_answer4.lower()
-    if user_answer4 == color4:
-        print("1 is 4")
-        result =+ 1
-        return result
-    else:
-        print("nop")
+def user_answer(color1, color2, color3, color4):
+    start = True
+    while start == True:
+        user_answer1 = input("Enter color1: ")
+        user_answer1.lower()
+        if user_answer1 != "red" and user_answer1 != "yellow" and user_answer1 != "orange" and user_answer1 != "green" \
+            and user_answer1 != "blue" and user_answer1 != "purple" and user_answer1 != "black" and user_answer1 != "white":
+            print("Incorrtct selection")
+        else:
+            start = False
+    start = True
+    while start == True:
+        user_answer2 = input("Enter color2: ")
+        user_answer2.lower()
+        if user_answer2 != "red" and user_answer2 != "yellow" and user_answer2 != "orange" and user_answer2 != "green" \
+            and user_answer2 != "blue" and user_answer2 != "purple" and user_answer2 != "black" and user_answer2 != "white":
+            print("Incorrtct selection")
+        else:
+            start = False
+    start = True
+    while start == True:
+        user_answer3 = input("Enter color3: ")
+        user_answer3.lower()
+        if user_answer3 != "red" and user_answer3 != "yellow" and user_answer3 != "orange" and user_answer3 != "green" \
+            and user_answer3 != "blue" and user_answer3 != "purple" and user_answer3 != "black" and user_answer3 != "white":
+            print("Incorrtct selection")
+        else:
+            start = False
+    start = True
+    while start == True:
+        user_answer4 = input("Enter color4: ")
+        user_answer4.lower()
+        if user_answer4 != "red" and user_answer4 != "yellow" and user_answer4 != "orange" and user_answer4 != "green" \
+            and user_answer4 != "blue" and user_answer4 != "purple" and user_answer4 != "black" and user_answer4 != "white" :
+            print("Incorrtct selection")
+        else:
+            start = False
+    result = 0
+    place = 0
+    if  color1 == user_answer1:
+        result =result+1 
+    elif color1 == user_answer2 or color1 == user_answer3 or color1 == user_answer3:
+        place = place+1
+    if  color2 == user_answer2:
+        result = result+1 
+    elif color2 == user_answer1 or color2 == user_answer3 or color2 == user_answer4:
+        place = place+1
+    if  color3 == user_answer3:
+        result = result+1 
+    elif color3 == user_answer1 or color3 == user_answer2 or color3 == user_answer4:
+        place = place+1
+    if  color4 == user_answer4:
+        result = result+1 
+    elif color4 == user_answer1 or color4 == user_answer2 or color4 == user_answer3:
+        place = place+1
+    print(f"Correct color in the correct place - {result}")
+    print(f"Correct color in the wrong place - {place}")
+    print()
+    # data = [result, place]
+    return result
+
+main()
+
+#FIRST TRY DONT WORK............................................................................................
+# def user_answer2(color2):
+#     user_answer2 = input("Color2: ") 
+#     user_answer2 = user_answer2.lower()
+#     if user_answer2 == color2:
+#         print("1 is 4")
+#         result =+ 1
+#         return result
+#     else:
+#         print("nop")
+# def user_answer3(color3):
+#     user_answer3 = input("Color3: ") 
+#     user_answer3 = user_answer3.lower()
+#     if user_answer3 == color3:
+#         print("1 is 4")
+#         result =+ 1
+#         return result
+#     else:
+#         print("nop")
+# def user_answer4(color4):
+#     user_answer4 = input("Color4: ") 
+#     user_answer4 = user_answer4.lower()
+#     if user_answer4 == color4:
+#         print("1 is 4")
+#         result =+ 1
+#         return result
+#     else:
+#         print("nop")
 
 # def result(result):
 #     print(result)
-main()
